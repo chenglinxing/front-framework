@@ -1,0 +1,11 @@
+// element-variables.scss
+:root {
+  --primary-color: #b96161;
+}
+$primary-color: var(--primary-color); // 定义主题颜色变量
+
+// 使用 $primary-color 变量作为主题颜色
+$--color-primary: $primary-color;
+$--color-success: $primary-color;
+$--color-warning: $primary-color;
+$--color-danger: $primary-color;
