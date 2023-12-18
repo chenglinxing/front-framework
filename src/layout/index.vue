@@ -1,13 +1,8 @@
 <template>
   <div class="layuout">
     <el-container>
-      <el-aside><c-menu /></el-aside>
-      <el-container>
-        <el-header>
-          <c-header />
-        </el-header>
-        <el-main><router-view /></el-main>
-      </el-container>
+      <el-header> <c-header /></el-header>
+      <el-main><router-view /></el-main>
     </el-container>
   </div>
 </template>
@@ -17,7 +12,7 @@
     name: "CLayout",
     components: {
       CHeader: () => import("./header"),
-      CMenu: () => import("./menu.vue"),
+      // CMenu: () => import("./menu.vue"),
     },
     data() {
       return {};
@@ -29,7 +24,8 @@
 <style lang="scss" scoped>
   .layuout {
   }
-  ::v-deep .el-aside {
-    width: 200px;
+
+  ::v-deep .el-header{
+    padding: 0 !important;
   }
 </style>

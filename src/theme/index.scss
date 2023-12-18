@@ -2,23 +2,19 @@
 $--font-path: "~element-ui/lib/theme-chalk/fonts";
 
 html.light {
-  //   background: #ffffff;
-  //   color: #000000;
   @import "./light.scss";
   @import "~element-ui/packages/theme-chalk/src/index";
+  $menu-bg: $--background-color-base;
 }
-
 html.dark {
-  //   background: #000000;
-  //   color: #ffffff;
   @import "./dark.scss";
   @import "~element-ui/packages/theme-chalk/src/index";
+  $menu-bg: $--background-color-base;
 }
 
 html.default {
   @import "~element-ui/packages/theme-chalk/src/index";
   @import "./custom.css";
   $primary-color: var(--primary-color); // 定义主题颜色变量
+  $menu-bg: $--background-color-base;
 }
-
-/* 设定值 */

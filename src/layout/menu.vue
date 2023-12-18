@@ -1,51 +1,102 @@
 <template>
   <div class="menu-index">
     <el-menu
-      default-active="2"
-      class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
+      :default-active="activeIndex"
+      class="el-menu-demo"
+      mode="horizontal"
+      router
     >
-      <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
+      <template v-for="(item, index) in routeList">
+        <template v-if="item.children">
+          <el-submenu :index="item.path" :key="index">
+            <template slot="title">
+              <i :class="item.icon"></i>
+              <span slot="title">{{ item.title }}</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item
+                v-for="(childItem, childIndex) in item.children"
+                :key="childIndex"
+                :index="childItem.path"
+                >{{ childItem.title }}</el-menu-item
+              >
+            </el-menu-item-group>
+          </el-submenu></template
+        >
+        <template v-else>
+          <el-menu-item :key="index" :index="item.path">
+            <i :class="item.icon"></i>
+            <span slot="title">{{ item.title }}</span>
+          </el-menu-item>
         </template>
-        <el-menu-item-group>
-          <template slot="title">分组一</template>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="2">
-        <i class="el-icon-menu"></i>
-        <span slot="title">导航二</span>
-      </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <i class="el-icon-document"></i>
-        <span slot="title">导航三</span>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <i class="el-icon-setting"></i>
-        <span slot="title">导航四</span>
-      </el-menu-item>
+      </template>
+      <!-- <menu-list :routeList="routeList" :menuMode="menuMode"></menu-list> -->
     </el-menu>
   </div>
 </template>
 
 <script>
+  // import MenuList from "./subMenu.vue";
+
   export default {
-    name: "ElMenu",
+    name: "DefaultMenu",
+    components: {
+      // MenuList,
+    },
     data() {
       return {
         isCollapse: false,
+        menuMode: "horizontal", //垂直
+        activeIndex: "/test1",
+        routeList: [
+          {
+            path: "/test1",
+            icon: "el-icon-setting",
+            title: "测试1",
+          },
+          {
+            path: "/test2",
+            icon: "el-icon-setting",
+            title: "测试2",
+          },
+          {
+            path: "/test3",
+            icon: "el-icon-setting",
+            title: "测试3",
+            children: [
+              {
+                path: "/test3-1",
+                icon: "el-icon-setting",
+                title: "测试3-1",
+                children: [
+                  {
+                    path: "/test3-1-1",
+                    icon: "el-icon-setting",
+                    title: "测试3-1-1",
+                  },
+                  {
+                    path: "/test3-2-1",
+                    icon: "el-icon-setting",
+                    title: "测试3-2-2",
+                    children: [
+                      {
+                        path: "/test3-1-1-1",
+                        icon: "el-icon-setting",
+                        title: "测试3-1-1-1",
+                      },
+                      {
+                        path: "/test3-2-1-1",
+                        icon: "el-icon-setting",
+                        title: "测试3-2-2-2",
+                      },
+                    ],
+                  },
+                ],
+              },
+              { path: "/test3-2", icon: "el-icon-setting", title: "测试3-2" },
+            ],
+          },
+        ],
       };
     },
     methods: {
@@ -54,3 +105,5 @@
     },
   };
 </script>
+
+<style lang="scss" scoped></style>
