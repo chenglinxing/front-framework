@@ -17,6 +17,10 @@ const routes = [
         path: "/home",
         component: () => import("@/views/home/index.vue"),
       },
+      {
+        path: "/tableHeaderProcessing",
+        component: () => import("@/views/tableHeaderProcessing/index.vue"),
+      },
     ],
   },
 ];

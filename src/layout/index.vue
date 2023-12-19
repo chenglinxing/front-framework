@@ -23,9 +23,14 @@
 
 <style lang="scss" scoped>
   .layuout {
+    height: calc(100vh);
   }
 
-  ::v-deep .el-header{
+  .el-container {
+    height: 100%;
+  }
+
+  ::v-deep .el-header {
     padding: 0 !important;
   }
 </style>

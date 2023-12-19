@@ -55,7 +55,7 @@
             title: "测试1",
           },
           {
-            path: "/test2",
+            path: "/tableHeaderProcessing",
             icon: "el-icon-setting",
             title: "测试2",
           },

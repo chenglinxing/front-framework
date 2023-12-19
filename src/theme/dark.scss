@@ -4,11 +4,32 @@
 /** 自定义黑暗主题 */
 
 /* 改变主题色变量 */
-$--color-primary: #67c23a;
 $--color-success: #17cabb;
 $--color-warning: #c77e6c;
 $--color-danger: #f70f13;
 $--color-info: #323741;
-$--color-text-primary: #202021;
 $--color-text-secondary: #606266;
-$--background-color-base: #f7f8fa;
+
+$--color-primary: #b2bf9c;
+$--color-text-primary: #5c789d;
+$--background-color-base: #acb1bf;
+
+.el-radio.is-checked .el-radio__inner {
+  border-color: $--background-color-base;
+  background-color: $--color-primary;
+  &:hover{
+    border-color: $--color-primary;
+  }
+}
+.el-radio__input.is-checked + .el-radio__label {
+  color: $--color-primary;
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner {
+  border-color: $--background-color-base;
+  background-color: $--color-primary;
+}
+
+.el-checkbox__input.is-checked + .el-checkbox__label {
+  color: $--color-primary;
+}

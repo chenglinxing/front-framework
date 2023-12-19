@@ -4,8 +4,12 @@
     <div class="menu"><c-menu /></div>
     <div class="opreate-btn">
       <div class="opreate-content">
-        <i class="el-icon-date"></i>
-        <i class="el-icon-message"></i>
+        <el-badge value="new" class="item">
+          <i class="el-icon-date"></i>
+        </el-badge>
+        <el-badge :value="12" class="item">
+          <i class="el-icon-message"></i>
+        </el-badge>
         <i class="el-icon-setting"></i>
         <el-dropdown>
           <span class="el-dropdown-link">
