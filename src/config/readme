@@ -1,0 +1,12 @@
+config/components    组件
+config/compSetting   组件设置
+config/formSetting   表单设置
+config/formContent   中间区域 表单内容
+config/rules         组件的配置规则
+config/index.js      组件配置导出
+
+如果需要新增组件
+1.先添加组件的配置规则  在config/rules新增组件的配置
+2.导出组件配置          在config/index.js中添加
+3.添加组件             在config/components中添加
+4.表单内容中引入该组件  在config/formContent中添加

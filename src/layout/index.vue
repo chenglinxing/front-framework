@@ -2,7 +2,7 @@
   <div class="layuout">
     <el-container>
       <el-header> <c-header /></el-header>
-      <el-main><router-view /></el-main>
+      <el-main style="padding: 0;"><router-view /></el-main>
     </el-container>
   </div>
 </template>

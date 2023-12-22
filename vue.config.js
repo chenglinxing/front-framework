@@ -13,6 +13,7 @@ module.exports = defineConfig({
         "@layout": resolve("src/layout"),
         "@store": resolve("src/store"),
         "@views": resolve("src/views"),
+        "@config": resolve("src/config"),
       },
     },
   },

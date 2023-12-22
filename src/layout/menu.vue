@@ -50,18 +50,18 @@
         activeIndex: "/test1",
         routeList: [
           {
-            path: "/test1",
+            path: "/tableHeaderProcessing",
             icon: "el-icon-setting",
             title: "测试1",
           },
           {
-            path: "/tableHeaderProcessing",
-            icon: "el-icon-setting",
-            title: "测试2",
+            path: "/formCreate",
+            icon: "el-icon-s-platform",
+            title: "表单",
           },
           {
             path: "/test3",
-            icon: "el-icon-setting",
+            icon: "el-icon-s-setting",
             title: "测试3",
             children: [
               {

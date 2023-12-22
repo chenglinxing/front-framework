@@ -21,6 +21,10 @@ const routes = [
         path: "/tableHeaderProcessing",
         component: () => import("@/views/tableHeaderProcessing/index.vue"),
       },
+      {
+        path: "/formCreate",
+        component: () => import("@/views/formCreate/index.vue"),
+      },
     ],
   },
 ];
