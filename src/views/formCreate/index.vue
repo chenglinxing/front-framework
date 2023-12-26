@@ -10,6 +10,7 @@
               :group="{ name: 'default', pull: 'clone', put: false }"
               :sort="false"
               :list="item.list"
+              @start="dragStart($event, index)"
               @end="dragCompItem(item, index)"
             >
               <div
@@ -43,13 +44,14 @@
         </el-header>
 
         <ElMain style="background: #f5f5f5; padding: 20px">
-          <div class="form-comp-list">
+          <div class="form-comp-list" @dragover.prevent @drop="handleDrop">
             <!-- <component
               :is="FormCreate"
               :rule="dragForm.rule"
               :option="form.value"
               v-model="dragForm.api"
             ></component> -->
+            <FormContent :formItemList="currentFormConfigList" />
           </div>
         </ElMain>
       </el-container>
@@ -73,17 +75,27 @@
   import createMenu from "@/config";
   import draggable from "vuedraggable";
   import FormSetting from "@/config/formSetting";
+  import FormContent from "@/config/formContent";
+  import { mapGetters } from "vuex";
+
   export default {
     name: "formCreate",
     components: {
       draggable,
       FormSetting,
+      FormContent,
     },
     data() {
       return {
         menuList: createMenu(),
-        activeTab: "form",
+        currentComp: null, // 当前组件
       };
+    },
+    created(){
+      
+    },
+    computed: {
+      ...mapGetters(["currentFormConfigList"]),
     },
     methods: {
       //预览
@@ -92,10 +104,28 @@
       //点击左侧组件
       handleClickCompItem(fItem, fIndex) {
         console.log(fItem, fIndex, "组件");
+        // this.currentComp = fItem;
       },
 
+      // 结束拖拽组件
       dragCompItem(item, index) {
-        console.log(item, index, "item, index");
+        console.log(item, index, "end   item, index");
+      },
+
+      // 开始拖拽组件
+      dragStart(event, index) {
+        const draggedIndex = event.oldIndex; // 获取被拖动元素的索引
+        const draggedValue = this.menuList[index].list[draggedIndex]; // 获取被拖动元素的值
+        console.log(draggedValue,'draggedValue')
+        this.currentComp = draggedValue;
+      },
+
+      // 拖拽到指定区域
+      handleDrop(event) {
+        // 在B区域中处理 drop 事件
+        event.dataTransfer.dropEffect = "move";
+        console.log(this.currentComp, "this.currentComp");
+        this.$store.commit("get_form_config", this.currentComp);
       },
     },
   };
