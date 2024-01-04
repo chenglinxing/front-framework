@@ -8,10 +8,11 @@ export default {
   icon: "icon-radio",
   label,
   name,
+  prop: uniqueId(name),
   rule() {
     return {
       type: name,
-      field: uniqueId(),
+      field: uniqueId(name),
       title: label,
       info: "",
       $required: false,

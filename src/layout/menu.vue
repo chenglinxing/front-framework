@@ -65,7 +65,7 @@
             title: "测试3",
             children: [
               {
-                path: "/test3-1",
+                path: "/test",
                 icon: "el-icon-setting",
                 title: "测试3-1",
                 children: [

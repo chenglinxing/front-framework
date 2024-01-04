@@ -8,10 +8,11 @@ export default {
   icon: "icon-select",
   label,
   name,
+  prop: uniqueId(name),
   rule() {
     return {
       type: name,
-      field: uniqueId(),
+      field: uniqueId(name),
       title: label,
       info: "",
       $required: false,
